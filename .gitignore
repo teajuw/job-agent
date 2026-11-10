@@ -1,0 +1,18 @@
+# Environment
+.venv/
+.DS_Store
+__pycache__/
+
+# Private: the knowledge wiki about Trevor. It is its own private git repo.
+/wiki/
+
+# Private: eval runs and cases built on the real wiki (traces quote it)
+/.claude/hillclimb/
+/evals/private/
+
+# Third-party writing copied in full. Listed in docs/index.md instead.
+/docs/raw/*.md
+/docs/llm-wiki.md
+
+# Obsidian settings and plugins
+.obsidian/
