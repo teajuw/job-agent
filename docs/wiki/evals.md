@@ -1,6 +1,6 @@
 # Evals
 
-> Skeleton. Applies [[demystifying-evals]] and [[hillclimbing]] to this project. The general method lives on those pages; this one records only what is specific here.
+> Skeleton. Applies [[demystifying-evals]] and [[hillclimbing]] to this project. The general method lives on those pages; this one records only what is specific here. It covers the fit judge; the generators are on [[generator-evals]].
 
 ## What is being measured
 

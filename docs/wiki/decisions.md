@@ -4,9 +4,10 @@ Newest first. One line each, with the reason. An entry that is reversed is struc
 
 ## Decided
 
+- **2026-11-10** The generators are graded first on three criteria: groundedness, style, bespoke. They apply to the generators only; the fit judge keeps its own metrics. See [[generator-evals]].
 - **2026-11-10** Three features: requisites check, resume generator, cover letter generator, in that order. Replaces the two-phase entry below; cover letters are common enough to be a main feature. See [[hills]].
 - **2026-11-10** The knowledge wiki is built iteratively from a minimal seed (one resume or an interview), not designed up front. See [[knowledge-wiki]].
-- **2026-11-10** `job-agent` is a public repo; `wiki/` is a separate private repo that it ignores. See [[build-guide]].
+- **2026-11-10** `job-agent` is a public repo; `knowledge/` is a separate private repo that it ignores. See [[build-guide]].
 - **2026-11-10** Two phases: the fit judge first, then tailored bullets as the hillclimbing showcase, with shortlist ranking as the fallback. Reason: the fit judge is useful but will likely saturate; bullets have room and reuse the judge as a grader. See [[hills]].
 - **2026-11-10** The fit judge's quality hillclimb is conditional on its baseline. If there is no room, its cases become a regression suite and only cost is climbed. See [[build-guide]] step 7.
 - **2026-11-10** One feature in flight at a time; a feature starts with a baseline; new ideas go to [[hills]].
@@ -24,6 +25,9 @@ Newest first. One line each, with the reason. An entry that is reversed is struc
 - First judge: no tools, whole wiki in the prompt, one call per requirement. ([[agents-sdk]])
 - Cases pin a wiki commit; the repo goes under git. ([[evals]])
 - Split by posting. ([[evals]])
+- Groundedness is a gate, not a term in an average. ([[generator-evals]])
+- The generator returns each claim with its wiki quote as structured output. ([[generator-evals]])
+- A swap test as one of the bespoke checks. ([[generator-evals]])
 
 ## Open
 

@@ -41,3 +41,31 @@ Features are now requisites check, resume generator, cover letter generator. [[k
 ## [2026-11-10] design | No reference grading
 
 Dropped the seed-or-test rule from [[knowledge-wiki]]. The generators are graded without reference documents, so all past resumes and letters can seed the wiki; only their postings are kept out of the private eval.
+
+## [2026-11-10] restructure | Repo published, wiki seeded
+
+`job-agent` pushed as a public GitHub repo. The knowledge wiki was seeded from two resumes as five drafts in `wiki/proposed/`, awaiting Trevor's confirmation by interview. [[knowledge-wiki]] updated to the wiki's actual folders.
+
+## [2026-11-10] design | Generator evals
+
+Added [[generator-evals]]: the three criteria Trevor named for the generators (groundedness, style, bespoke), with the checks already scattered across [[hills]] and [[build-guide]] gathered under them. The gate, structured claims and the swap test are proposals. [[evals]] now says it covers the fit judge only. [[index]], [[build-guide]] and [[decisions]] updated.
+
+## [2026-11-10] design | Privacy gate
+
+Added a privacy section to [[generator-evals]]: generated drafts must contain no term from the knowledge wiki's confidential list. Agreed with Trevor.
+
+## [2026-11-10] restructure | knowledge/
+
+The knowledge wiki's folder is `knowledge/`, not `wiki/`. Paths updated across the build wiki and `.gitignore`.
+
+## [2026-11-10] restructure | canon
+
+Confirmed knowledge pages live in `knowledge/canon/`, drafts in `knowledge/proposed/`. [[knowledge-wiki]] updated.
+
+## [2026-11-10] restructure | Knowledge wiki pushed privately
+
+`knowledge/` now has a private GitHub remote. Internal employer names stay in `knowledge/local/`, which is not tracked. [[knowledge-wiki]] and [[generator-evals]] updated.
+
+## [2026-11-10] design | Standard wording
+
+Trevor asked for industry-standard wording to be part of the plan. [[knowledge-wiki]] now has a naming rule for skills, and [[generator-evals]] has a terms check under Bespoke: a code check that the draft names each matched skill in the posting's wording.

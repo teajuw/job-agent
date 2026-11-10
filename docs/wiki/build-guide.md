@@ -23,7 +23,7 @@ It is eval-shaped. Every required or preferred item in the posting becomes one j
 ```
 posting ──▶ extract requirements ──▶ judge each one against the wiki ──▶ roll up (code) ──▶ fit report
                                               │                                  │
-                                        wiki/ (read-only)                 unclear / flagged
+                                        knowledge/ (read-only)            unclear / flagged
                                               ▲                                  │
                                               └── Trevor approves an edit ◀── review page
 ```
@@ -38,14 +38,14 @@ posting ──▶ extract requirements ──▶ judge each one against the wiki
 
 | Path | What it is | Who writes it |
 |---|---|---|
-| `wiki/` | The knowledge wiki: facts about Trevor, the source of truth. **Private**, its own git repo, ignored by this one | Trevor (the agent proposes) |
+| `knowledge/` | The knowledge wiki: facts about Trevor, the source of truth. **Private**, its own git repo, ignored by this one | Trevor (the agent proposes) |
 | `agent/` | The judge: extract, judge, roll up | Sessions, driven by evals |
 | `evals/` | Cases, labels, the runner | Sessions, with Trevor approving cases and labels |
 | `.claude/hillclimb/judge/` | Run results: `baseline/`, `v1/`, `v2/`… | The runner |
 | `docs/wiki/` | This build wiki | Sessions, with Trevor |
 | `docs/raw/` | Source articles, never edited | Trevor |
 
-Paths are from the repo root. There are two wikis: `wiki/` holds facts about Trevor, `docs/wiki/` holds how the system is built. On these pages a bare `wiki/` always means the first.
+Paths are from the repo root. `knowledge/` is the knowledge wiki, holding facts about Trevor. `docs/wiki/` is this build wiki, holding how the system is built.
 
 ## The pages
 
@@ -59,11 +59,12 @@ Two pages hold the design itself.
 
 - [[verdicts]]: what yes, no and unclear mean, the evidence rule, and how verdicts roll up. Trevor labels against this page and the judge prompt is written from it.
 - [[evals]]: what a case is, where labels come from, the split, the metrics, and what the hillclimb may change.
+- [[generator-evals]]: what the resume and cover letter generators are graded on: groundedness, style, bespoke.
 
 Two pages hold constraints the design has to live inside.
 
 - [[agents-sdk]]: every model call runs through the Agent SDK on the subscription, and how spend is seen without an API bill.
-- [[knowledge-wiki]]: Trevor owns `wiki/`; its layout, and the review loop that turns unclear verdicts into wiki edits.
+- [[knowledge-wiki]]: Trevor owns `knowledge/`; its layout, and the review loop that turns unclear verdicts into wiki edits.
 
 [[hills]] scores the feature ideas and holds the rules against scope creep. [[decisions]] lists what is decided and what is still open. [[index]] lists every page and [[log]] records changes.
 
@@ -73,7 +74,7 @@ Each step ends in something Trevor can look at. Do not start a step until the on
 
 | # | Step | Tool | Done when |
 |---|---|---|---|
-| 1 | Seed `wiki/` with the minimum, from one resume or a short interview, and make it a private git repo | see [[knowledge-wiki]] | Trevor has read every page and it is committed |
+| 1 | Seed `knowledge/` with the minimum, from one resume or a short interview, and make it a private git repo | see [[knowledge-wiki]] | Trevor has read every page and it is committed |
 | 2 | Collect 8 to 12 real postings, including ones he would not apply to | by hand | Postings saved under `evals/postings/` |
 | 3 | Write the simplest judge that works end to end | Agent SDK, see [[agents-sdk]] | One posting gives a fit report with quoted evidence |
 | 4 | Build the eval: extract requirements once, freeze them, Trevor labels each | `/claude-api build-eval` | Baseline score with a confidence interval, and Trevor agrees with the grades he spot-checks |
@@ -97,11 +98,11 @@ The first row is the expected one. It is a good result: a judge that can be trus
 
 ## Build order, phase 2
 
-The resume generator. Not started until phase 1 step 8 is done. Outline only; it gets its own design page when it starts.
+The resume generator. Not started until phase 1 step 8 is done. Outline only; it gets its own design page when it starts. What it is graded on is on [[generator-evals]].
 
 | # | Step | Done when |
 |---|---|---|
-| 0 | Bring past resumes into `wiki/raw/`; derive `bullets.md`. Postings they were written for are not used as eval cases | Trevor has approved the bullet bank |
+| 0 | Bring past resumes into `knowledge/raw/`; derive `bullets.md`. Postings they were written for are not used as eval cases | Trevor has approved the bullet bank |
 | 1 | Build fictional candidates: a wiki and postings for each, so the eval can be public | Trevor has read them and finds them believable |
 | 2 | Write the grader: claims trace to wiki quotes, nothing claimed where the fit judge says no, covers what the judge says yes to, length | Runs on hand-written good and bad bullets and tells them apart |
 | 3 | Calibrate the taste comparison against Trevor's own picks | Agreement reported; below the bar, taste is left out of the score |
@@ -116,7 +117,7 @@ The cover letter generator. Past letters come in the same way, `voice.md` is der
 
 ## Public and private
 
-The `job-agent` repository is public. These stay out of it: `wiki/`, eval cases and run results built on the real wiki, and third-party articles in `docs/raw/`. Public eval cases use fictional candidates. The `.gitignore` enforces this; check `git status` before any first push.
+The `job-agent` repository is public. These stay out of it: `knowledge/`, eval cases and run results built on the real wiki, and third-party articles in `docs/raw/`. Public eval cases use fictional candidates. The `.gitignore` enforces this; check `git status` before any first push.
 
 ## Where this departs from the stock workflow
 

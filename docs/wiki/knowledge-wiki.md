@@ -1,6 +1,6 @@
 # The knowledge wiki
 
-> Skeleton. A constraint page. Rules for `wiki/` at the repo root, the source of truth about Trevor, and for the review loop that improves it. This is not the build wiki you are reading now.
+> Skeleton. A constraint page. Rules for `knowledge/` at the repo root, the source of truth about Trevor, and for the review loop that improves it. This is not the build wiki you are reading now.
 
 ## How this differs from the usual LLM wiki
 
@@ -20,12 +20,15 @@ Pages appear when there is something to put in them. A page earns its place if a
 
 | Layer | Path | What it holds | Rule |
 |---|---|---|---|
-| Raw sources | `wiki/raw/` | Resumes, cover letters, reviews, interview notes | Never edited |
-| Facts | `wiki/*.md` | What is true: roles, skills, projects, preferences | Each claim traces to a raw source or to Trevor's word |
-| Synthesis | `wiki/voice.md`, `wiki/bullets.md` | How Trevor presents the facts | Derived from the raw sources, approved by Trevor, each bullet traces to a fact |
-| Proposals | `wiki/proposed/` | Model-drafted edits waiting for Trevor | No feature reads this folder |
+| Raw sources | `knowledge/raw/` | Resumes, cover letters, reviews, interview notes | Never edited |
+| Facts | `knowledge/canon/` | What is true: roles, skills, projects, preferences | Each claim traces to a raw source or to Trevor's word |
+| Synthesis | `knowledge/canon/voice.md`, `knowledge/canon/bullets.md` | How Trevor presents the facts | Derived from the raw sources, approved by Trevor, each bullet traces to a fact |
+| Proposals | `knowledge/proposed/` | Model-drafted pages and edits waiting for Trevor | No feature reads this folder |
+| Local only | `knowledge/local/` | Internal employer names and anything else that must not leave the machine | Ignored by git, never pushed |
 
-The likely first fact pages are `roles`, `skills`, `projects`, `education`, `preferences`, and `answers` (questions the agent raised and Trevor's dated replies). **OPEN**: Trevor's call, made as the seed is ingested.
+The wiki has the same shape as this build wiki: `index.md` and `log.md` at the top, `raw/` beside the pages.
+
+The seed produced five drafts: `profile`, `roles`, `projects`, `education`, `skills`. `preferences` and `answers` (questions the agent raised and Trevor's dated replies) are added when there is something to put in them.
 
 ## Past resumes and cover letters
 
@@ -46,6 +49,7 @@ Two cautions.
 - Say durations and dates outright ("Python, daily, 2019 to 2025"). Year thresholds are the commonest requirement.
 - Say what is absent when it matters ("No professional Go"). It lets the judge answer no where it would otherwise say unclear.
 - One fact per sentence, so a quote can stand alone.
+- Name skills the way postings do. Each skill has one standard name and a list of other names for it. The fit judge matches a requirement against any of them, which avoids an unclear verdict caused only by wording. An alias is a synonym, never an extra claim. Once postings are collected, the standard name is whichever one they use most.
 
 ## The review loop
 
@@ -74,4 +78,4 @@ The same page, with the judge's answers hidden, is used for labelling in [[evals
 
 ## Git
 
-`wiki/` is its own **private** git repository. The outer `job-agent` repository is public and ignores it. Eval cases pin a wiki commit, and every accepted proposal is its own commit with the question that prompted it in the message.
+`knowledge/` is its own **private** git repository, with a private GitHub remote (`job-agent-knowledge`). The outer `job-agent` repository is public and ignores it. Eval cases pin a wiki commit, and every accepted proposal is its own commit with the question that prompted it in the message.

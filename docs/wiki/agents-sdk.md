@@ -27,7 +27,7 @@ Proposal for the first version, chosen to be as repeatable as possible:
 | Output | Structured, per [[verdicts]] | Parsed in code, no scraping |
 | Model, effort | Set explicitly, recorded on every row | **OPEN**: starting model |
 
-If the wiki outgrows the prompt, the judge gets read-only `Read` and `Grep` over `wiki/` and nothing else. That is a hillclimb variant to be measured, not a default.
+If the wiki outgrows the prompt, the judge gets read-only `Read` and `Grep` over `knowledge/` and nothing else. That is a hillclimb variant to be measured, not a default.
 
 **OPEN**: one call per requirement (clean, attributable, more calls) or one call per posting with all requirements (cheaper, verdicts can influence each other). Proposal: per requirement.
 

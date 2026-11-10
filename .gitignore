@@ -4,7 +4,7 @@
 __pycache__/
 
 # Private: the knowledge wiki about Trevor. It is its own private git repo.
-/wiki/
+/knowledge/
 
 # Private: eval runs and cases built on the real wiki (traces quote it)
 /.claude/hillclimb/

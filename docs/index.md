@@ -17,7 +17,8 @@ The three things the design is built from. One page per source.
 ## Design
 
 - [[verdicts]]: the rubric. What yes, no and unclear mean, and how they roll up.
-- [[evals]]: cases, labels, metrics, the split, and what the hillclimb may change.
+- [[evals]]: the fit judge's eval. Cases, labels, metrics, the split, and what the hillclimb may change.
+- [[generator-evals]]: the resume and cover letter generators' eval. Groundedness, style, bespoke.
 
 ## Ideas
 
